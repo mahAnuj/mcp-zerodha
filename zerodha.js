@@ -3,10 +3,10 @@ import fetch from 'node-fetch';
 import { ZERODHA_CONFIG, FAVORITE_STOCKS, TECHNICAL_PARAMS, TRADING_PARAMS } from './config.js';
 
 // Log API initialization info
-console.log('Initializing Zerodha API client with:');
-console.log('API Key:', ZERODHA_CONFIG.apiKey || 'not set');
-console.log('API Secret length:', ZERODHA_CONFIG.apiSecret ? ZERODHA_CONFIG.apiSecret.length : 0);
-console.log('Access Token:', ZERODHA_CONFIG.accessToken ? '✓ (set)' : '✗ (not set)');
+console.error('Initializing Zerodha API client with:');
+console.error('API Key:', ZERODHA_CONFIG.apiKey || 'not set');
+console.error('API Secret length:', ZERODHA_CONFIG.apiSecret ? ZERODHA_CONFIG.apiSecret.length : 0);
+console.error('Access Token:', ZERODHA_CONFIG.accessToken ? '✓ (set)' : '✗ (not set)');
 
 // Initialize the Kite Connect API client
 let kite = new KiteConnect.KiteConnect({
@@ -20,7 +20,7 @@ let isAuthenticated = false;
 if (ZERODHA_CONFIG.accessToken) {
   kite.setAccessToken(ZERODHA_CONFIG.accessToken);
   isAuthenticated = true;
-  console.log('Pre-initialized with access token');
+  console.error('Pre-initialized with access token');
 }
 
 /**
@@ -30,7 +30,7 @@ if (ZERODHA_CONFIG.accessToken) {
 export function getLoginURL() {
   // Construct the login URL manually using our actual API key
   const loginURL = `https://kite.zerodha.com/connect/login?api_key=${ZERODHA_CONFIG.apiKey}&v=3`;
-  console.log('Getting login URL: ' + loginURL);
+  console.error('Getting login URL: ' + loginURL);
   return loginURL;
 }
 
@@ -286,7 +286,7 @@ export function setAccessToken(accessToken) {
   try {
     kite.setAccessToken(accessToken);
     isAuthenticated = true;
-    console.log('Access token set successfully');
+    console.error('Access token set successfully');
   } catch (error) {
     console.error('Error setting access token:', error);
     throw error;

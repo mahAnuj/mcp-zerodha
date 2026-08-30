@@ -197,11 +197,11 @@ server.addTool({
 });
 
 server.on("connect", (event) => {
-  console.log("Client connected:", event.session);
+  console.error("Client connected:", event.session);
 });
 
 server.on("disconnect", (event) => {
-  console.log("Client disconnected:", event.session);
+  console.error("Client disconnected:", event.session);
 });
 
 server.on("error", (error) => {
@@ -213,4 +213,4 @@ server.start({
   transportType: "stdio"
 });
 
-console.log("Zerodha Trading MCP server started!");
+console.error("Zerodha Trading MCP server started!");
