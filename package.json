@@ -1,0 +1,27 @@
+{
+  "name": "mcp-server-trading",
+  "version": "1.0.0",
+  "description": "MCP server for trading with Zerodha",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npx fastmcp dev index.js",
+    "inspect": "npx fastmcp inspect index.js"
+  },
+  "keywords": [
+    "mcp",
+    "trading",
+    "zerodha"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "fastmcp": "^1.27.6",
+    "kiteconnect": "^4.1.0",
+    "node-fetch": "^3.3.2",
+    "yahoo-finance2": "^2.13.3",
+    "zod": "^3.22.4"
+  }
+}
